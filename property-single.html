@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>The OMNIA Residence | Infinity Views</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        surface: "#131313",
+                        background: "#131313",
+                        "on-surface": "#e4e2e1",
+                        "on-surface-variant": "#c4c7c7",
+                        tertiary: "#e4c278"
+                    },
+                    spacing: {
+                        "margin-desktop": "80px",
+                        "margin-mobile": "20px",
+                        "gutter": "32px"
+                    },
+                    fontFamily: {
+                        "headline": ["Playfair Display"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hairline-b { border-bottom: 1px solid #2A2A2A; }
+        .hairline-t { border-top: 1px solid #2A2A2A; }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body antialiased min-h-screen flex flex-col">
+    <!-- TopNavBar -->
+    <nav class="bg-surface/90 backdrop-blur-md fixed top-0 w-full flex justify-between items-center px-margin-mobile md:px-margin-desktop py-6 z-50">
+        <a class="font-headline text-[24px] text-tertiary italic tracking-tight" href="index.html">Infinity Views</a>
+        <a class="font-label text-[12px] uppercase tracking-[0.1em] text-on-surface hover:text-tertiary transition-colors" href="properties.html">Back to Archive</a>
+    </nav>
+
+    <main class="flex-grow pt-[100px]">
+        <!-- Full Bleed Hero -->
+        <section class="w-full h-[80vh] relative">
+            <img src="https://images.unsplash.com/photo-1600607687931-cebf5748498d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2400&q=80" alt="The OMNIA Residence" class="w-full h-full object-cover mix-blend-luminosity opacity-80">
+            <div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+            
+            <div class="absolute bottom-0 left-0 w-full px-margin-mobile md:px-margin-desktop pb-16">
+                <p class="font-label text-[12px] uppercase tracking-[0.2em] text-tertiary mb-4">Palm Jumeirah</p>
+                <h1 class="font-headline text-[72px] leading-tight font-light mb-4">The OMNIA Residence</h1>
+                <p class="font-body text-[24px] text-tertiary">AED 45,000,000</p>
+            </div>
+        </section>
+
+        <!-- Metadata & Description -->
+        <section class="px-margin-mobile md:px-margin-desktop py-24">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+                <!-- Data List -->
+                <div class="md:col-span-4">
+                    <ul class="flex flex-col">
+                        <li class="flex justify-between py-4 hairline-b hairline-t">
+                            <span class="font-label text-[12px] uppercase tracking-[0.1em] text-on-surface-variant">Interior Space</span>
+                            <span class="font-body text-[16px]">12,500 sqft</span>
+                        </li>
+                        <li class="flex justify-between py-4 hairline-b">
+                            <span class="font-label text-[12px] uppercase tracking-[0.1em] text-on-surface-variant">Bedrooms</span>
+                            <span class="font-body text-[16px]">6 Suites</span>
+                        </li>
+                        <li class="flex justify-between py-4 hairline-b">
+                            <span class="font-label text-[12px] uppercase tracking-[0.1em] text-on-surface-variant">Architecture</span>
+                            <span class="font-body text-[16px]">KSA Design Group</span>
+                        </li>
+                        <li class="flex justify-between py-4 hairline-b">
+                            <span class="font-label text-[12px] uppercase tracking-[0.1em] text-on-surface-variant">Completion</span>
+                            <span class="font-body text-[16px]">2025 (Off-Plan)</span>
+                        </li>
+                    </ul>
+                    
+                    <a href="contact.html" class="mt-12 inline-block bg-tertiary text-[#131313] font-label text-[12px] uppercase tracking-[0.1em] px-8 py-4 hover:bg-white transition-colors duration-300">
+                        Request Private Viewing
+                    </a>
+                </div>
+
+                <!-- Description -->
+                <div class="md:col-span-7 md:col-start-6 pt-12 md:pt-0">
+                    <p class="font-body text-[18px] text-on-surface-variant leading-relaxed mb-8">
+                        The OMNIA Residence stands as a monument to contemporary minimal architecture on the fronds of Palm Jumeirah. Designed to maximize the relationship between interior volume and the Arabian Gulf, the property utilizes vast expanses of structural glass to eliminate boundaries.
+                    </p>
+                    <p class="font-body text-[18px] text-on-surface-variant leading-relaxed">
+                        Materials include raw, board-formed concrete, brushed bronze accents, and imported Travertine floors. A true collector's piece, the residence features a submerged car gallery, private wellness facility, and a 40-meter infinity edge pool that perfectly aligns with the horizon.
+                    </p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Gallery Grid -->
+        <section class="px-margin-mobile md:px-margin-desktop pb-32">
+            <div class="grid grid-cols-2 md:grid-cols-2 gap-4">
+                <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Interior" class="w-full aspect-[4/3] object-cover grayscale opacity-80 hover:grayscale-0 transition-all duration-500">
+                <img src="https://images.unsplash.com/photo-1613490908581-229048a1215b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Detail" class="w-full aspect-[4/3] object-cover grayscale opacity-80 hover:grayscale-0 transition-all duration-500">
+            </div>
+        </section>
+    </main>
+</body>
+</html>
