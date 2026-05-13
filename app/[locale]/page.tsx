@@ -16,7 +16,6 @@ export const metadata: Metadata = {
     title: 'Infinity Views | Luxury Real Estate Dubai',
     description:
       "Where Dubai's most distinguished addresses find their owners. Private advisory, curated collection, discreet by design.",
-    images: [{ url: '/og-home.jpg', width: 1200, height: 630 }],
   },
 }
 

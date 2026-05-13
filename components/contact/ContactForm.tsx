@@ -108,7 +108,7 @@ export default function ContactForm() {
             <label
               key={i.value}
               className={cn(
-                'eyebrow text-[10px] px-5 py-3 border cursor-pointer transition-all duration-400 ease-luxury',
+                'eyebrow text-[10px] px-5 py-3 border cursor-pointer transition-[background-color,border-color,color] duration-400 ease-luxury',
                 intent === i.value
                   ? 'border-gold bg-gold text-ink'
                   : 'border-hairline-dark text-text-on-dark/50 hover:border-gold/40 hover:text-text-on-dark -ml-px',

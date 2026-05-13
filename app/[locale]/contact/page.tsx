@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import ContactForm from '@/components/contact/ContactForm'
+import ContactMapLoader from '@/components/contact/ContactMapLoader'
 import { Phone, WhatsappLogo, Envelope, MapPin, Clock } from '@phosphor-icons/react/dist/ssr'
 
 export const metadata: Metadata = {
@@ -8,7 +9,6 @@ export const metadata: Metadata = {
     'Begin a private conversation with an Infinity Views advisor. Dubai office at Boulevard Plaza Tower 1. Enquiries in English, Arabic, Russian, Hindi, and Mandarin.',
   openGraph: {
     title: 'Contact | Infinity Views Dubai',
-    images: [{ url: '/og-contact.jpg', width: 1200, height: 630 }],
   },
 }
 
@@ -121,15 +121,7 @@ export default function ContactPage() {
         </div>
       </div>
 
-      {/* Map placeholder — CartoDB Dark Matter via react-leaflet */}
-      <div className="border-t border-hairline-dark">
-        <div className="h-[320px] bg-[#0A0A0A] relative overflow-hidden flex items-center justify-center">
-          <div className="text-center">
-            <div className="eyebrow text-[9px] text-text-on-dark/30 mb-2">Downtown Dubai</div>
-            <p className="text-text-on-dark/20 text-sm font-serif italic">Boulevard Plaza Tower 1, Level 14</p>
-          </div>
-        </div>
-      </div>
+      <ContactMapLoader />
     </div>
   )
 }

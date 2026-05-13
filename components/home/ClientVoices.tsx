@@ -3,6 +3,7 @@
 import { useRef } from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
 import { ArrowLeft, ArrowRight } from '@phosphor-icons/react'
+import { useTranslations } from 'next-intl'
 
 const testimonials = [
   {
@@ -32,6 +33,7 @@ const testimonials = [
 ]
 
 export default function ClientVoices() {
+  const t = useTranslations('voices')
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, dragFree: false, align: 'start' })
 
   return (
@@ -40,10 +42,10 @@ export default function ClientVoices() {
         {/* Header */}
         <div className="flex items-end justify-between mb-14">
           <div>
-            <div className="eyebrow text-gold mb-5">Client Voices</div>
+            <div className="eyebrow text-gold mb-5">{t('eyebrow')}</div>
             <h2 className="font-serif font-light text-text-on-dark text-headline-xl leading-snug">
-              Relationships,<br />
-              <em>not transactions.</em>
+              {t('heading')}<br />
+              <em>{t('heading_em')}</em>
             </h2>
           </div>
 
@@ -51,14 +53,14 @@ export default function ClientVoices() {
           <div className="flex items-center gap-3">
             <button
               onClick={() => emblaApi?.scrollPrev()}
-              className="w-10 h-10 border border-hairline-dark flex items-center justify-center text-text-on-dark/50 hover:border-gold hover:text-gold transition-all duration-400 ease-luxury"
+              className="w-10 h-10 border border-hairline-dark flex items-center justify-center text-text-on-dark/50 hover:border-gold hover:text-gold transition-[color,border-color] duration-400 ease-luxury"
               aria-label="Previous testimonial"
             >
               <ArrowLeft size={14} weight="light" />
             </button>
             <button
               onClick={() => emblaApi?.scrollNext()}
-              className="w-10 h-10 border border-hairline-dark flex items-center justify-center text-text-on-dark/50 hover:border-gold hover:text-gold transition-all duration-400 ease-luxury"
+              className="w-10 h-10 border border-hairline-dark flex items-center justify-center text-text-on-dark/50 hover:border-gold hover:text-gold transition-[color,border-color] duration-400 ease-luxury"
               aria-label="Next testimonial"
             >
               <ArrowRight size={14} weight="light" />

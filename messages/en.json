@@ -21,14 +21,41 @@
   "collection": {
     "eyebrow": "The Private Collection",
     "heading": "Selected residences.",
-    "subheading": "Curated, not listed."
+    "subheading": "Curated, not listed.",
+    "view_all": "View all"
+  },
+  "why": {
+    "eyebrow": "Our Difference",
+    "heading": "A different kind of",
+    "heading_em": "real estate firm.",
+    "pillar1_heading": "Curated, not listed.",
+    "pillar1_body": "Every residence in our collection is selected for architectural merit, location pedigree, or investment integrity. Most are off-market. We do not aggregate — we advocate.",
+    "pillar2_heading": "Advisors, not agents.",
+    "pillar2_body": "Our team has placed AED 2.4 billion of Dubai real estate with private clients across four continents. We do not chase listings — we earn introductions. Every engagement is principal-to-principal.",
+    "pillar3_heading": "Discreet by design.",
+    "pillar3_body": "Confidentiality is structural, not a courtesy. Off-market opportunities are shared by introduction. NDAs are standard. Discretion has been the foundation of every long-term client relationship we hold."
+  },
+  "neighborhoods": {
+    "eyebrow": "Neighbourhoods of Dubai",
+    "heading": "Six addresses.",
+    "heading_em": "Each a world apart."
+  },
+  "advisor": {
+    "eyebrow": "Advisor Spotlight",
+    "speak": "Speak to {name}",
+    "whatsapp": "WhatsApp"
+  },
+  "voices": {
+    "eyebrow": "Client Voices",
+    "heading": "Relationships,",
+    "heading_em": "not transactions."
   },
   "footer": {
     "tagline": "Private real estate advisory. Dubai.",
     "nav_heading": "Navigate",
     "specialties_heading": "Specialties",
     "contact_heading": "Contact",
-    "rera": "RERA ORN 28847 · DED License {{ TO_CONFIRM }}",
+    "rera": "RERA ORN 28847 · DED License [TO_CONFIRM]",
     "rights": "© 2024 Infinity Views Real Estate. All rights reserved.",
     "newsletter_placeholder": "Your email address",
     "newsletter_cta": "Subscribe"
@@ -42,9 +69,17 @@
     "filter_type": "Type",
     "filter_beds": "Bedrooms",
     "filter_price": "Price Range",
+    "all_areas": "All Areas",
+    "all_types": "All Types",
+    "any_beds": "Any",
+    "clear_filters": "Clear filters",
     "empty_heading": "No residences match your criteria.",
     "empty_body": "Speak to an advisor for off-market opportunities.",
-    "empty_cta": "Contact an Advisor"
+    "empty_cta": "Contact an Advisor",
+    "view_all": "View full details",
+    "off_market": "Off-market",
+    "for_sale": "For Sale",
+    "for_rent": "For Rent"
   },
   "contact": {
     "heading": "Begin a Conversation",
@@ -70,7 +105,13 @@
     "phone": "+971 4 123 4567",
     "whatsapp": "WhatsApp",
     "email": "hello@infinityviews.ae",
-    "hours": "Sun – Thu: 9:00 – 18:00 GST"
+    "hours": "Sun – Thu: 9:00 – 18:00 GST",
+    "details_heading": "Contact Details",
+    "label_telephone": "Telephone",
+    "enquiries_in": "Enquiries accepted in",
+    "rera_label": "RERA ORN 28847",
+    "ded_label": "DED License [TO_CONFIRM]",
+    "registered_in": "Registered in Dubai, UAE"
   },
   "philosophy": {
     "eyebrow": "Our Philosophy",

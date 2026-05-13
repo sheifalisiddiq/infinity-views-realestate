@@ -21,14 +21,41 @@
   "collection": {
     "eyebrow": "المجموعة الخاصة",
     "heading": "مساكن مختارة.",
-    "subheading": "منتقاة، لا مجرد مدرجة."
+    "subheading": "منتقاة، لا مجرد مدرجة.",
+    "view_all": "عرض الكل"
+  },
+  "why": {
+    "eyebrow": "ما يميزنا",
+    "heading": "شركة عقارية",
+    "heading_em": "من نوع مختلف.",
+    "pillar1_heading": "Curated, not listed.",
+    "pillar1_body": "Every residence in our collection is selected for architectural merit, location pedigree, or investment integrity. Most are off-market. We do not aggregate — we advocate.",
+    "pillar2_heading": "Advisors, not agents.",
+    "pillar2_body": "Our team has placed AED 2.4 billion of Dubai real estate with private clients across four continents. We do not chase listings — we earn introductions. Every engagement is principal-to-principal.",
+    "pillar3_heading": "Discreet by design.",
+    "pillar3_body": "Confidentiality is structural, not a courtesy. Off-market opportunities are shared by introduction. NDAs are standard. Discretion has been the foundation of every long-term client relationship we hold."
+  },
+  "neighborhoods": {
+    "eyebrow": "أحياء دبي",
+    "heading": "ستة عناوين.",
+    "heading_em": "كل منها عالم مستقل."
+  },
+  "advisor": {
+    "eyebrow": "مستشارنا المميز",
+    "speak": "تحدث مع {name}",
+    "whatsapp": "واتساب"
+  },
+  "voices": {
+    "eyebrow": "أصوات العملاء",
+    "heading": "علاقات،",
+    "heading_em": "لا مجرد معاملات."
   },
   "footer": {
     "tagline": "استشارات عقارية خاصة. دبي.",
     "nav_heading": "التنقل",
     "specialties_heading": "التخصصات",
     "contact_heading": "التواصل",
-    "rera": "RERA ORN 28847 · رخصة DED {{ TO_CONFIRM }}",
+    "rera": "RERA ORN 28847 · رخصة DED [TO_CONFIRM]",
     "rights": "© 2024 إنفينيتي فيوز للعقارات. جميع الحقوق محفوظة.",
     "newsletter_placeholder": "بريدك الإلكتروني",
     "newsletter_cta": "اشترك"
@@ -42,9 +69,17 @@
     "filter_type": "النوع",
     "filter_beds": "غرف النوم",
     "filter_price": "نطاق السعر",
+    "all_areas": "جميع المناطق",
+    "all_types": "جميع الأنواع",
+    "any_beds": "أي",
+    "clear_filters": "مسح الفلاتر",
     "empty_heading": "لا توجد مساكن تطابق معاييرك.",
     "empty_body": "تحدث مع مستشار للاطلاع على الفرص خارج السوق.",
-    "empty_cta": "تواصل مع مستشار"
+    "empty_cta": "تواصل مع مستشار",
+    "view_all": "عرض التفاصيل الكاملة",
+    "off_market": "خارج السوق",
+    "for_sale": "للبيع",
+    "for_rent": "للإيجار"
   },
   "contact": {
     "heading": "ابدأ محادثة",
@@ -70,7 +105,13 @@
     "phone": "+971 4 123 4567",
     "whatsapp": "واتساب",
     "email": "hello@infinityviews.ae",
-    "hours": "الأحد – الخميس: 9:00 – 18:00 بتوقيت الخليج"
+    "hours": "الأحد – الخميس: 9:00 – 18:00 بتوقيت الخليج",
+    "details_heading": "تفاصيل التواصل",
+    "label_telephone": "هاتف",
+    "enquiries_in": "نقبل الاستفسارات بالغات",
+    "rera_label": "RERA ORN 28847",
+    "ded_label": "رخصة DED [TO_CONFIRM]",
+    "registered_in": "مسجلة في دبي، الإمارات"
   },
   "philosophy": {
     "eyebrow": "فلسفتنا",

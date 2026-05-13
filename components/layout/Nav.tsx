@@ -58,7 +58,7 @@ export default function Nav({ locale }: NavProps) {
     <>
       <header
         className={cn(
-          'fixed top-0 left-0 right-0 z-50 transition-all duration-600 ease-luxury',
+          'fixed top-0 left-0 right-0 z-50 transition-[background-color,border-color,backdrop-filter] duration-600 ease-luxury',
           scrolled || !isHome
             ? 'bg-ink/95 backdrop-blur-sm border-b border-hairline-dark'
             : 'bg-transparent',

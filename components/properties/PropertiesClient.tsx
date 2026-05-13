@@ -5,6 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useQueryState } from 'nuqs'
 import { ArrowRight, Funnel } from '@phosphor-icons/react'
+import { useTranslations } from 'next-intl'
 import { properties, type PropertyArea, type PropertyType } from '@/data/properties'
 import { formatPrice, cn } from '@/lib/utils'
 
@@ -22,6 +23,7 @@ const TYPES: PropertyType[] = ['Villa', 'Penthouse', 'Apartment', 'Townhouse', '
 const BED_OPTIONS = [1, 2, 3, 4, 5, 6, 7]
 
 export default function PropertiesClient() {
+  const t = useTranslations('properties')
   const [status, setStatus] = useQueryState('status', { defaultValue: 'sale' })
   const [area, setArea] = useQueryState('area', { defaultValue: '' })
   const [type, setType] = useQueryState('type', { defaultValue: '' })
@@ -43,10 +45,10 @@ export default function PropertiesClient() {
       {/* Hero bar */}
       <div className="border-b border-hairline-dark bg-ink py-16 px-8 md:px-16">
         <div className="max-w-[1440px] mx-auto">
-          <div className="eyebrow text-gold mb-4">The Private Collection</div>
+          <div className="eyebrow text-gold mb-4">{t('heading')}</div>
           <h1 className="font-serif font-light text-text-on-dark text-headline-xl">
-            Private residences,<br />
-            <em>curated by merit.</em>
+            {t('subheading').split(',')[0]},<br />
+            <em>{t('subheading').split(',')[1]?.trim()}</em>
           </h1>
         </div>
       </div>
@@ -67,7 +69,7 @@ export default function PropertiesClient() {
                   )}
                   aria-pressed={status === s}
                 >
-                  {s === 'sale' ? 'Buy' : 'Rent'}
+                  {s === 'sale' ? t('filter_buy') : t('filter_rent')}
                   {status === s && (
                     <span className="absolute bottom-0 left-0 right-0 h-px bg-gold" />
                   )}
@@ -82,7 +84,7 @@ export default function PropertiesClient() {
               className="eyebrow text-[10px] bg-transparent text-text-on-dark/50 border-none outline-none py-5 pr-6 mr-6 border-r border-hairline-dark flex-shrink-0 cursor-pointer hover:text-text-on-dark transition-colors duration-300"
               aria-label="Filter by area"
             >
-              <option value="">All Areas</option>
+              <option value="">{t('all_areas')}</option>
               {AREAS.map((a) => (
                 <option key={a} value={a} className="bg-ink text-text-on-dark">
                   {a}
@@ -97,7 +99,7 @@ export default function PropertiesClient() {
               className="eyebrow text-[10px] bg-transparent text-text-on-dark/50 border-none outline-none py-5 pr-6 mr-6 border-r border-hairline-dark flex-shrink-0 cursor-pointer hover:text-text-on-dark transition-colors duration-300"
               aria-label="Filter by property type"
             >
-              <option value="">All Types</option>
+              <option value="">{t('all_types')}</option>
               {TYPES.map((t) => (
                 <option key={t} value={t} className="bg-ink text-text-on-dark">
                   {t}
@@ -112,7 +114,7 @@ export default function PropertiesClient() {
               className="eyebrow text-[10px] bg-transparent text-text-on-dark/50 border-none outline-none py-5 pr-6 flex-shrink-0 cursor-pointer hover:text-text-on-dark transition-colors duration-300"
               aria-label="Filter by minimum bedrooms"
             >
-              <option value="">Any Beds</option>
+              <option value="">{t('any_beds')}</option>
               {BED_OPTIONS.map((b) => (
                 <option key={b} value={String(b)} className="bg-ink text-text-on-dark">
                   {b}+ Beds
@@ -129,10 +131,10 @@ export default function PropertiesClient() {
                   setType('')
                   setBeds('')
                 }}
-                className="ml-auto eyebrow text-[9px] text-text-on-dark/30 hover:text-gold transition-colors duration-300 flex-shrink-0 py-5 pl-6 border-l border-hairline-dark"
-                aria-label="Clear all filters"
+                className="ml-auto eyebrow text-[9px] text-text-on-dark/30 hover:text-gold transition-[color] duration-300 flex-shrink-0 py-5 pl-6 border-l border-hairline-dark"
+                aria-label={t('clear_filters')}
               >
-                Clear filters
+                {t('clear_filters')}
               </button>
             )}
           </div>
@@ -145,13 +147,13 @@ export default function PropertiesClient() {
           /* Empty state */
           <div className="flex flex-col items-center justify-center py-32 text-center">
             <h2 className="font-serif font-light italic text-text-on-dark/50 text-2xl mb-4">
-              No residences match your criteria.
+              {t('empty_heading')}
             </h2>
             <p className="text-text-on-dark/35 text-sm mb-8 max-w-sm">
-              Speak to an advisor for off-market opportunities that may not appear in our listed collection.
+              {t('empty_body')}
             </p>
             <Link href="/contact" className="btn-ghost text-[9px] py-2.5 px-6">
-              Contact an Advisor
+              {t('empty_cta')}
             </Link>
           </div>
         ) : (
@@ -173,7 +175,7 @@ export default function PropertiesClient() {
                       src={property.images[0]}
                       alt={property.name}
                       fill
-                      className="object-cover filter grayscale group-hover:grayscale-0 group-hover:scale-[1.03] transition-all duration-700 ease-luxury"
+                      className="object-cover filter grayscale group-hover:grayscale-0 group-hover:scale-[1.03] transition-[transform,filter] duration-700 ease-luxury"
                       sizes="(max-width: 768px) 100vw, 50vw"
                     />
                     {property.offMarket && (
@@ -202,7 +204,7 @@ export default function PropertiesClient() {
                     <ArrowRight
                       size={16}
                       weight="light"
-                      className="text-text-on-dark/20 group-hover:text-gold group-hover:translate-x-1 transition-all duration-400 ease-luxury mt-1 flex-shrink-0"
+                      className="text-text-on-dark/20 group-hover:text-gold group-hover:translate-x-1 transition-[color,transform] duration-400 ease-luxury mt-1 flex-shrink-0"
                     />
                   </div>
                 </Link>

@@ -158,7 +158,7 @@ export default function PhilosophyPage() {
                     src={advisor.image}
                     alt={advisor.name}
                     fill
-                    className="object-cover object-top filter grayscale group-hover:grayscale-0 transition-all duration-700 ease-luxury"
+                    className="object-cover object-top filter grayscale group-hover:grayscale-0 transition-[transform,filter] duration-700 ease-luxury"
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
                   {/* Flip overlay on hover */}

@@ -3,11 +3,13 @@
 import { useEffect, useRef } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useTranslations } from 'next-intl'
 import { advisors } from '@/data/advisors'
 
 const featured = advisors.find((a) => a.featured)!
 
 export default function AdvisorSpotlight() {
+  const t = useTranslations('advisor')
   const imageRef = useRef<HTMLDivElement>(null)
   const contentRef = useRef<HTMLDivElement>(null)
 
@@ -62,9 +64,9 @@ export default function AdvisorSpotlight() {
           {/* Content — 40% */}
           <div
             ref={contentRef}
-            className="md:col-span-2 flex flex-col justify-center px-8 md:px-14 py-16 md:py-20 opacity-0 translate-y-6 transition-all duration-700 ease-out"
+            className="md:col-span-2 flex flex-col justify-center px-8 md:px-14 py-16 md:py-20 opacity-0 translate-y-6 transition-[opacity,transform] duration-700 ease-out"
           >
-            <div className="eyebrow text-gold mb-8">Advisor Spotlight</div>
+            <div className="eyebrow text-gold mb-8">{t('eyebrow')}</div>
 
             <blockquote className="font-serif italic font-light text-text-on-dark/80 text-[1.35rem] md:text-[1.5rem] leading-relaxed mb-10 max-w-sm">
               &ldquo;{featured.quote}&rdquo;
@@ -87,16 +89,16 @@ export default function AdvisorSpotlight() {
 
             <div className="flex items-center gap-4">
               <Link href="/contact" className="btn-ghost text-[9px] py-2.5 px-5">
-                Speak to {featured.name.split(' ')[0]}
+                {t('speak', { name: featured.name.split(' ')[0] })}
               </Link>
               <a
                 href={`https://wa.me/${featured.whatsapp}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="eyebrow text-[9px] text-text-on-dark/40 hover:text-gold transition-colors duration-400 ease-luxury"
+                className="eyebrow text-[9px] text-text-on-dark/40 hover:text-gold transition-[color] duration-400 ease-luxury"
                 aria-label={`WhatsApp ${featured.name}`}
               >
-                WhatsApp
+                {t('whatsapp')}
               </a>
             </div>
           </div>

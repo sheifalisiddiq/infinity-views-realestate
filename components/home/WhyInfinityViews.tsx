@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
+import { useTranslations } from 'next-intl'
 
 const pillars = [
   {
@@ -69,7 +70,7 @@ function PillarCard({
   return (
     <div
       ref={ref}
-      className="opacity-0 translate-y-6 transition-all duration-700 ease-out"
+      className="opacity-0 translate-y-6 transition-[opacity,transform] duration-700 ease-out"
     >
       <div className="mb-8">{icon}</div>
       <h3 className="font-serif font-light text-text-on-light text-headline-md mb-4 italic">
@@ -81,6 +82,7 @@ function PillarCard({
 }
 
 export default function WhyInfinityViews() {
+  const t = useTranslations('why')
   const headingRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -106,13 +108,13 @@ export default function WhyInfinityViews() {
         {/* Eyebrow + heading */}
         <div
           ref={headingRef}
-          className="opacity-0 translate-y-6 transition-all duration-700 ease-out mb-16 md:mb-20 max-w-lg"
+          className="opacity-0 translate-y-6 transition-[opacity,transform] duration-700 ease-out mb-16 md:mb-20 max-w-lg"
         >
-          <div className="eyebrow text-gold mb-5" style={{ color: '#C9A961' }}>
-            Our Difference
+          <div className="eyebrow text-gold mb-5">
+            {t('eyebrow')}
           </div>
           <h2 className="font-serif font-light text-text-on-light text-headline-xl leading-snug">
-            A different kind of<br />real estate firm.
+            {t('heading')}<br /><em>{t('heading_em')}</em>
           </h2>
         </div>
 

@@ -3,6 +3,7 @@
 import { useEffect, useRef } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useTranslations } from 'next-intl'
 
 const neighborhoods = [
   {
@@ -80,19 +81,19 @@ function NeighborhoodCard({ neighborhood, className = '' }: { neighborhood: type
         src={neighborhood.image}
         alt={neighborhood.name}
         fill
-        className="object-cover filter grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-[1200ms] ease-luxury"
+        className="object-cover filter grayscale group-hover:grayscale-0 group-hover:scale-[1.05] transition-[transform,filter] duration-[1200ms] ease-luxury"
         sizes="(max-width: 768px) 100vw, 50vw"
       />
 
       {/* Gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/20 to-transparent" />
 
-      {/* Content */}
+      {/* Content — description fades in on hover (opacity only, no layout animation) */}
       <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 translate-y-2 group-hover:translate-y-0 transition-transform duration-500 ease-luxury">
-        <h3 className="font-serif font-light text-text-on-dark text-xl md:text-2xl mb-0 group-hover:mb-3 transition-all duration-500 ease-luxury">
+        <h3 className="font-serif font-light text-text-on-dark text-xl md:text-2xl mb-2">
           {neighborhood.name}
         </h3>
-        <p className="text-text-on-dark/65 text-sm leading-relaxed max-h-0 group-hover:max-h-40 overflow-hidden transition-all duration-500 ease-luxury">
+        <p className="text-text-on-dark/65 text-sm leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-luxury line-clamp-3">
           {neighborhood.description}
         </p>
       </div>
@@ -101,15 +102,17 @@ function NeighborhoodCard({ neighborhood, className = '' }: { neighborhood: type
 }
 
 export default function Neighborhoods() {
+  const t = useTranslations('neighborhoods')
+
   return (
     <section className="bg-ink" aria-label="Neighborhoods of Dubai">
       <div className="max-w-[1440px] mx-auto px-8 md:px-16 py-24 md:py-32">
         {/* Heading */}
         <div className="mb-12 md:mb-16">
-          <div className="eyebrow text-gold mb-5">Neighbourhoods of Dubai</div>
+          <div className="eyebrow text-gold mb-5">{t('eyebrow')}</div>
           <h2 className="font-serif font-light text-text-on-dark text-headline-xl max-w-xl leading-snug">
-            Six addresses.<br />
-            <em>Each a world apart.</em>
+            {t('heading')}<br />
+            <em>{t('heading_em')}</em>
           </h2>
         </div>
 

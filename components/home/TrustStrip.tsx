@@ -1,13 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-
-const stats = [
-  { value: 'RERA ORN 28847', label: 'Licensed Broker', static: true },
-  { value: 'AED 2.4B+', label: 'In private transactions', static: true },
-  { value: '200+', label: 'HNW clients served', static: true },
-  { value: 'EN / AR / RU / HI / ZH', label: '5 languages spoken', static: true },
-]
+import { useTranslations } from 'next-intl'
 
 function StatItem({ value, label }: { value: string; label: string }) {
   const ref = useRef<HTMLDivElement>(null)
@@ -30,7 +24,7 @@ function StatItem({ value, label }: { value: string; label: string }) {
   return (
     <div
       ref={ref}
-      className={`flex flex-col items-center md:items-start transition-all duration-700 ease-out ${
+      className={`flex flex-col items-center md:items-start transition-[opacity,transform] duration-700 ease-out ${
         visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
       }`}
     >
@@ -43,6 +37,15 @@ function StatItem({ value, label }: { value: string; label: string }) {
 }
 
 export default function TrustStrip() {
+  const t = useTranslations('trust')
+
+  const stats = [
+    { value: 'RERA ORN 28847', label: t('rera') },
+    { value: 'AED 2.4B+', label: t('transactions') },
+    { value: '200+', label: t('clients') },
+    { value: 'EN / AR / RU / HI / ZH', label: t('languages') },
+  ]
+
   return (
     <section className="bg-ink border-y border-hairline-dark" aria-label="Trust indicators">
       <div className="max-w-[1440px] mx-auto px-8 md:px-16 py-12 md:py-14">

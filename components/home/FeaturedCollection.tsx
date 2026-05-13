@@ -6,6 +6,7 @@ import Link from 'next/link'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { ArrowRight } from '@phosphor-icons/react'
+import { useTranslations } from 'next-intl'
 import { getFeaturedProperties } from '@/data/properties'
 import { formatPrice } from '@/lib/utils'
 
@@ -14,6 +15,7 @@ gsap.registerPlugin(ScrollTrigger)
 const featured = getFeaturedProperties().slice(0, 6)
 
 export default function FeaturedCollection() {
+  const t = useTranslations('collection')
   const sectionRef = useRef<HTMLElement>(null)
   const trackRef = useRef<HTMLDivElement>(null)
   const headingRef = useRef<HTMLDivElement>(null)
@@ -77,18 +79,18 @@ export default function FeaturedCollection() {
     >
       {/* Heading — visible above the horizontal scroll */}
       <div ref={headingRef} className="px-8 md:px-16 pt-24 pb-12 max-w-[1440px] mx-auto">
-        <div className="eyebrow text-gold mb-4">The Private Collection</div>
+        <div className="eyebrow text-gold mb-4">{t('eyebrow')}</div>
         <div className="flex items-end justify-between gap-4">
           <h2 className="font-serif font-light text-text-on-dark text-headline-xl">
-            Selected residences.<br />
-            <em>Curated, not listed.</em>
+            {t('heading')}<br />
+            <em>{t('subheading')}</em>
           </h2>
           <Link
             href="/properties"
-            className="hidden md:flex items-center gap-2 eyebrow text-[10px] text-text-on-dark/50 hover:text-gold transition-colors duration-400 ease-luxury pb-1"
-            aria-label="View all properties"
+            className="hidden md:flex items-center gap-2 eyebrow text-[10px] text-text-on-dark/50 hover:text-gold transition-[color] duration-400 ease-luxury pb-1"
+            aria-label={t('view_all')}
           >
-            View all
+            {t('view_all')}
             <ArrowRight size={12} weight="light" />
           </Link>
         </div>
@@ -114,7 +116,7 @@ export default function FeaturedCollection() {
                   src={property.images[0]}
                   alt={property.name}
                   fill
-                  className="object-cover filter grayscale group-hover:grayscale-0 scale-100 group-hover:scale-[1.04] transition-all duration-700 ease-luxury"
+                  className="object-cover filter grayscale group-hover:grayscale-0 scale-100 group-hover:scale-[1.04] transition-[transform,filter] duration-700 ease-luxury"
                   sizes="(max-width: 768px) 320px, (max-width: 1200px) 420px, 480px"
                 />
                 {property.offMarket && (
@@ -133,7 +135,7 @@ export default function FeaturedCollection() {
               {/* Info */}
               <div className="space-y-1.5">
                 <div className="eyebrow text-[9px] text-gold/70">{property.area}</div>
-                <h3 className="font-serif font-light text-text-on-dark text-lg leading-snug group-hover:text-gold transition-colors duration-400 ease-luxury">
+                <h3 className="font-serif font-light text-text-on-dark text-lg leading-snug group-hover:text-gold transition-[color] duration-400 ease-luxury">
                   {property.name}
                 </h3>
                 <div className="flex items-center justify-between pt-1">

@@ -56,14 +56,14 @@ export default function PropertyDetail({ property }: PropertyDetailProps) {
         {/* Arrows */}
         <button
           onClick={prev}
-          className="absolute left-6 top-1/2 -translate-y-1/2 w-10 h-10 border border-white/20 bg-ink/60 flex items-center justify-center hover:border-gold hover:text-gold transition-all duration-300"
+          className="absolute left-6 top-1/2 -translate-y-1/2 w-10 h-10 border border-white/20 bg-ink/60 flex items-center justify-center hover:border-gold hover:text-gold transition-[color,border-color] duration-300"
           aria-label="Previous image"
         >
           <ArrowLeft size={16} weight="light" className="text-white" />
         </button>
         <button
           onClick={next}
-          className="absolute right-6 top-1/2 -translate-y-1/2 w-10 h-10 border border-white/20 bg-ink/60 flex items-center justify-center hover:border-gold hover:text-gold transition-all duration-300"
+          className="absolute right-6 top-1/2 -translate-y-1/2 w-10 h-10 border border-white/20 bg-ink/60 flex items-center justify-center hover:border-gold hover:text-gold transition-[color,border-color] duration-300"
           aria-label="Next image"
         >
           <ArrowRight size={16} weight="light" className="text-white" />
@@ -82,7 +82,7 @@ export default function PropertyDetail({ property }: PropertyDetailProps) {
             <button
               key={i}
               onClick={() => setCurrentImage(i)}
-              className={`h-0.5 transition-all duration-300 ${
+              className={`h-0.5 transition-[width,background-color] duration-300 ${
                 i === currentImage ? 'w-6 bg-gold' : 'w-2 bg-white/30'
               }`}
               aria-label={`View image ${i + 1}`}
@@ -249,7 +249,7 @@ export default function PropertyDetail({ property }: PropertyDetailProps) {
                       src={p.images[0]}
                       alt={p.name}
                       fill
-                      className="object-cover filter grayscale group-hover:grayscale-0 group-hover:scale-[1.04] transition-all duration-700 ease-luxury"
+                      className="object-cover filter grayscale group-hover:grayscale-0 group-hover:scale-[1.04] transition-[transform,filter] duration-700 ease-luxury"
                       sizes="(max-width: 768px) 100vw, 33vw"
                     />
                   </div>

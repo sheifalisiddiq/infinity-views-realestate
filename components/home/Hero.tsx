@@ -4,29 +4,22 @@ import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ArrowDown } from '@phosphor-icons/react'
 import Link from 'next/link'
+import { useTranslations } from 'next-intl'
 
 const HERO_VIDEO_URL =
   'https://videos.pexels.com/video-files/3015468/3015468-uhd_2560_1440_25fps.mp4'
 const HERO_POSTER_URL =
   'https://images.pexels.com/videos/3015468/free-video-3015468.jpg?auto=compress&cs=tinysrgb&dpr=2&h=1080&w=1920'
 
-const HEADLINE_WORDS = [
-  'Where',
-  "Dubai's",
-  'most',
-  'distinguished',
-  'addresses',
-  'find',
-  'their',
-  'owners.',
-]
-
 export default function Hero() {
+  const t = useTranslations('hero')
   const containerRef = useRef<HTMLDivElement>(null)
   const eyebrowRef = useRef<HTMLDivElement>(null)
   const wordsRef = useRef<(HTMLSpanElement | null)[]>([])
   const ctaRef = useRef<HTMLDivElement>(null)
   const scrollCueRef = useRef<HTMLDivElement>(null)
+
+  const headlineWords = t('headline').split(' ')
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -108,12 +101,12 @@ export default function Hero() {
           style={{ opacity: 0 }}
           aria-hidden="true"
         >
-          Private Real Estate &nbsp;·&nbsp; Dubai &nbsp;·&nbsp; Est. 2018
+          {t('eyebrow')}
         </div>
 
         {/* Headline */}
         <h1 className="font-serif font-light text-text-on-dark leading-[1.1] text-[2.4rem] md:text-[3.5rem] lg:text-[4.5rem] mb-10 md:mb-12">
-          {HEADLINE_WORDS.map((word, i) => (
+          {headlineWords.map((word, i) => (
             <span key={i} className="inline-block mr-[0.25em] last:mr-0">
               <span
                 ref={(el) => {
@@ -133,9 +126,9 @@ export default function Hero() {
           <Link
             href="/properties"
             className="btn-ghost inline-flex"
-            aria-label="Explore our property collection"
+            aria-label={t('cta')}
           >
-            Explore the Collection
+            {t('cta')}
           </Link>
         </div>
       </div>
