@@ -1,9 +1,11 @@
 'use client'
 
-import { useRef } from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
+import { motion } from 'framer-motion'
 import { ArrowLeft, ArrowRight } from '@phosphor-icons/react'
 import { useTranslations } from 'next-intl'
+
+const ease = [0.16, 1, 0.3, 1] as const
 
 const testimonials = [
   {
@@ -40,7 +42,13 @@ export default function ClientVoices() {
     <section className="bg-ink border-t border-hairline-dark" aria-label="Client testimonials">
       <div className="max-w-[1440px] mx-auto px-8 md:px-16 py-24 md:py-32">
         {/* Header */}
-        <div className="flex items-end justify-between mb-14">
+        <motion.div
+          className="flex items-end justify-between mb-14 gap-4"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.8, ease }}
+        >
           <div>
             <div className="eyebrow text-gold mb-5">{t('eyebrow')}</div>
             <h2 className="font-serif font-light text-text-on-dark text-headline-xl leading-snug">
@@ -50,7 +58,7 @@ export default function ClientVoices() {
           </div>
 
           {/* Arrows */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 flex-shrink-0">
             <button
               onClick={() => emblaApi?.scrollPrev()}
               className="w-10 h-10 border border-hairline-dark flex items-center justify-center text-text-on-dark/50 hover:border-gold hover:text-gold transition-[color,border-color] duration-400 ease-luxury"
@@ -66,7 +74,7 @@ export default function ClientVoices() {
               <ArrowRight size={14} weight="light" />
             </button>
           </div>
-        </div>
+        </motion.div>
 
         {/* Carousel */}
         <div className="overflow-hidden" ref={emblaRef}>

@@ -1,55 +1,28 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { motion } from 'framer-motion'
 import { useTranslations } from 'next-intl'
 import { advisors } from '@/data/advisors'
 
 const featured = advisors.find((a) => a.featured)!
+const ease = [0.16, 1, 0.3, 1] as const
 
 export default function AdvisorSpotlight() {
   const t = useTranslations('advisor')
-  const imageRef = useRef<HTMLDivElement>(null)
-  const contentRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    const image = imageRef.current
-    const content = contentRef.current
-    if (!image || !content) return
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          // Left-to-right clip-path reveal
-          image.style.clipPath = 'inset(0 0% 0 0)'
-          image.style.transition = 'clip-path 900ms cubic-bezier(0.16, 1, 0.3, 1)'
-
-          // Content fades in
-          setTimeout(() => {
-            content.classList.add('opacity-100', 'translate-y-0')
-            content.classList.remove('opacity-0', 'translate-y-6')
-          }, 400)
-
-          observer.disconnect()
-        }
-      },
-      { threshold: 0.2 },
-    )
-
-    observer.observe(image)
-    return () => observer.disconnect()
-  }, [])
 
   return (
     <section className="bg-ink border-t border-hairline-dark" aria-label="Advisor spotlight">
       <div className="max-w-[1440px] mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-5 min-h-[600px]">
-          {/* Portrait — 60% */}
-          <div
-            ref={imageRef}
-            className="md:col-span-3 relative overflow-hidden min-h-[400px] md:min-h-0"
-            style={{ clipPath: 'inset(0 100% 0 0)' }}
+          {/* Portrait — clip-path reveal left-to-right */}
+          <motion.div
+            className="md:col-span-3 relative overflow-hidden min-h-[420px] md:min-h-0"
+            initial={{ clipPath: 'inset(0 100% 0 0)' }}
+            whileInView={{ clipPath: 'inset(0 0% 0 0)' }}
+            viewport={{ once: true, margin: '-100px' }}
+            transition={{ duration: 1.1, ease: [0.32, 0, 0.165, 1] }}
           >
             <Image
               src={featured.image}
@@ -59,12 +32,15 @@ export default function AdvisorSpotlight() {
               sizes="(max-width: 768px) 100vw, 60vw"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-transparent to-ink/50" />
-          </div>
+          </motion.div>
 
-          {/* Content — 40% */}
-          <div
-            ref={contentRef}
-            className="md:col-span-2 flex flex-col justify-center px-8 md:px-14 py-16 md:py-20 opacity-0 translate-y-6 transition-[opacity,transform] duration-700 ease-out"
+          {/* Content */}
+          <motion.div
+            className="md:col-span-2 flex flex-col justify-center px-6 md:px-14 py-16 md:py-20"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.8, ease, delay: 0.4 }}
           >
             <div className="eyebrow text-gold mb-8">{t('eyebrow')}</div>
 
@@ -101,7 +77,7 @@ export default function AdvisorSpotlight() {
                 {t('whatsapp')}
               </a>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

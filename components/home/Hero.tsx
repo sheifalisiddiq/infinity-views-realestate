@@ -1,7 +1,6 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
-import { gsap } from 'gsap'
+import { motion } from 'framer-motion'
 import { ArrowDown } from '@phosphor-icons/react'
 import Link from 'next/link'
 import { useTranslations } from 'next-intl'
@@ -11,65 +10,14 @@ const HERO_VIDEO_URL =
 const HERO_POSTER_URL =
   'https://images.pexels.com/videos/3015468/free-video-3015468.jpg?auto=compress&cs=tinysrgb&dpr=2&h=1080&w=1920'
 
+const ease = [0.16, 1, 0.3, 1] as const
+
 export default function Hero() {
   const t = useTranslations('hero')
-  const containerRef = useRef<HTMLDivElement>(null)
-  const eyebrowRef = useRef<HTMLDivElement>(null)
-  const wordsRef = useRef<(HTMLSpanElement | null)[]>([])
-  const ctaRef = useRef<HTMLDivElement>(null)
-  const scrollCueRef = useRef<HTMLDivElement>(null)
-
   const headlineWords = t('headline').split(' ')
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline({ delay: 0.3 })
-
-      // Eyebrow fades in
-      tl.fromTo(
-        eyebrowRef.current,
-        { opacity: 0, y: 12 },
-        { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' },
-      )
-
-      // Words reveal word-by-word with blur
-      tl.fromTo(
-        wordsRef.current.filter(Boolean),
-        { opacity: 0, y: 20, filter: 'blur(8px)' },
-        {
-          opacity: 1,
-          y: 0,
-          filter: 'blur(0px)',
-          duration: 0.9,
-          stagger: 0.07,
-          ease: 'power3.out',
-        },
-        '-=0.3',
-      )
-
-      // CTA fades in
-      tl.fromTo(
-        ctaRef.current,
-        { opacity: 0, y: 16 },
-        { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out' },
-        '-=0.4',
-      )
-
-      // Scroll cue
-      tl.fromTo(
-        scrollCueRef.current,
-        { opacity: 0 },
-        { opacity: 1, duration: 0.6, ease: 'power2.out' },
-        '-=0.2',
-      )
-    }, containerRef)
-
-    return () => ctx.revert()
-  }, [])
 
   return (
     <section
-      ref={containerRef}
       className="relative min-h-[100dvh] flex flex-col items-center justify-center overflow-hidden bg-ink"
       aria-label="Hero"
     >
@@ -83,46 +31,55 @@ export default function Hero() {
           playsInline
           poster={HERO_POSTER_URL}
           aria-hidden="true"
-          /* swap src= to a local asset or licensed CDN URL before going live */
         >
           <source src={HERO_VIDEO_URL} type="video/mp4" />
         </video>
-        {/* Gradient overlay: stronger at bottom for text legibility */}
         <div className="absolute inset-0 bg-gradient-to-b from-ink/30 via-ink/20 to-ink/80" />
         <div className="absolute inset-0 bg-gradient-to-r from-ink/40 to-transparent" />
       </div>
 
       {/* Content */}
-      <div className="relative z-10 text-center max-w-5xl mx-auto px-8 md:px-16">
+      <div className="relative z-10 text-center max-w-5xl mx-auto px-6 md:px-16">
         {/* Eyebrow */}
-        <div
-          ref={eyebrowRef}
+        <motion.div
           className="eyebrow text-gold mb-8 md:mb-10"
-          style={{ opacity: 0 }}
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease, delay: 0.3 }}
           aria-hidden="true"
         >
           {t('eyebrow')}
-        </div>
+        </motion.div>
 
-        {/* Headline */}
-        <h1 className="font-serif font-light text-text-on-dark leading-[1.1] text-[2.4rem] md:text-[3.5rem] lg:text-[4.5rem] mb-10 md:mb-12">
+        {/* Headline — word-by-word blur reveal */}
+        <h1 className="font-serif font-light text-text-on-dark leading-[1.1] text-[2.2rem] sm:text-[2.8rem] md:text-[3.5rem] lg:text-[4.5rem] mb-10 md:mb-12">
           {headlineWords.map((word, i) => (
-            <span key={i} className="inline-block mr-[0.25em] last:mr-0">
-              <span
-                ref={(el) => {
-                  wordsRef.current[i] = el
-                }}
-                className="inline-block"
-                style={{ opacity: 0 }}
-              >
-                {word}
-              </span>
-            </span>
+            <motion.span
+              key={i}
+              className="inline-block mr-[0.25em] last:mr-0"
+              initial={{ opacity: 0, y: 20, filter: 'blur(8px)' }}
+              animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+              transition={{
+                duration: 0.9,
+                ease,
+                delay: 0.5 + i * 0.07,
+              }}
+            >
+              {word}
+            </motion.span>
           ))}
         </h1>
 
         {/* CTA */}
-        <div ref={ctaRef} style={{ opacity: 0 }}>
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: 0.7,
+            ease,
+            delay: 0.5 + headlineWords.length * 0.07 + 0.15,
+          }}
+        >
           <Link
             href="/properties"
             className="btn-ghost inline-flex"
@@ -130,21 +87,22 @@ export default function Hero() {
           >
             {t('cta')}
           </Link>
-        </div>
+        </motion.div>
       </div>
 
       {/* Scroll cue */}
-      <div
-        ref={scrollCueRef}
+      <motion.div
         className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-1"
         aria-hidden="true"
-        style={{ opacity: 0 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.6, delay: 1.8 }}
       >
         <div className="w-px h-8 bg-gold/30 relative overflow-hidden">
           <div className="absolute top-0 left-0 w-full h-2 bg-gold animate-dot-descent" />
         </div>
         <ArrowDown size={10} className="text-gold/40" weight="light" />
-      </div>
+      </motion.div>
     </section>
   )
 }
