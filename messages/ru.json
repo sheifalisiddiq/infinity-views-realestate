@@ -1,0 +1,82 @@
+{
+  "nav": {
+    "properties": "Недвижимость",
+    "neighborhoods": "Районы",
+    "insights": "Аналитика",
+    "philosophy": "Философия",
+    "contact": "Контакты",
+    "languages": "Языки"
+  },
+  "hero": {
+    "eyebrow": "Элитная недвижимость · Дубай · Осн. 2018",
+    "headline": "Здесь самые престижные адреса Дубая обретают своих владельцев.",
+    "cta": "Просмотреть коллекцию"
+  },
+  "trust": {
+    "rera": "RERA ORN 28847",
+    "transactions": "AED 2.4B+ частных сделок",
+    "clients": "200+ состоятельных клиентов",
+    "languages": "5 языков · EN / AR / RU / HI / ZH"
+  },
+  "collection": {
+    "eyebrow": "Закрытая коллекция",
+    "heading": "Избранные резиденции.",
+    "subheading": "Отобраны, а не перечислены."
+  },
+  "footer": {
+    "tagline": "Частное консультирование по недвижимости. Дубай.",
+    "nav_heading": "Навигация",
+    "specialties_heading": "Специализация",
+    "contact_heading": "Контакты",
+    "rera": "RERA ORN 28847 · Лицензия DED {{ TO_CONFIRM }}",
+    "rights": "© 2024 Infinity Views Real Estate. Все права защищены.",
+    "newsletter_placeholder": "Ваш email",
+    "newsletter_cta": "Подписаться"
+  },
+  "properties": {
+    "heading": "Коллекция",
+    "subheading": "Частные резиденции, отобранные по достоинству.",
+    "filter_buy": "Купить",
+    "filter_rent": "Аренда",
+    "filter_area": "Район",
+    "filter_type": "Тип",
+    "filter_beds": "Спальни",
+    "filter_price": "Ценовой диапазон",
+    "empty_heading": "Нет объектов, соответствующих вашим критериям.",
+    "empty_body": "Свяжитесь с советником для доступа к закрытым предложениям.",
+    "empty_cta": "Связаться с советником"
+  },
+  "contact": {
+    "heading": "Начнём разговор",
+    "subheading": "Конфиденциально и без обязательств. Ответ в течение одного рабочего дня.",
+    "intent_buy": "Купить",
+    "intent_rent": "Арендовать",
+    "intent_sell": "Продать",
+    "intent_invest": "Инвестировать",
+    "label_intent": "Я хочу",
+    "label_area": "Предпочтительный район",
+    "label_type": "Тип недвижимости",
+    "label_budget": "Бюджет",
+    "label_bedrooms": "Спальни",
+    "label_message": "Расскажите подробнее (необязательно)",
+    "label_name": "Ваше имя",
+    "label_email": "Email",
+    "label_phone": "Телефон",
+    "submit": "Отправить запрос",
+    "success_heading": "Ваш запрос получен.",
+    "success_body": "Старший советник свяжется с вами в течение одного рабочего дня.",
+    "office": "Офис",
+    "address": "Boulevard Plaza Tower 1, этаж 14\nДаунтаун Дубай, ОАЭ",
+    "phone": "+971 4 123 4567",
+    "whatsapp": "WhatsApp",
+    "email": "hello@infinityviews.ae",
+    "hours": "Вс – Чт: 9:00 – 18:00 по GST"
+  },
+  "philosophy": {
+    "eyebrow": "Наша Философия",
+    "heading": "Компания недвижимости другого рода.",
+    "origins_chapter": "Истоки",
+    "approach_chapter": "Наш подход",
+    "standards_chapter": "Стандарт Infinity"
+  }
+}

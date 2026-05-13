@@ -1,0 +1,82 @@
+{
+  "nav": {
+    "properties": "العقارات",
+    "neighborhoods": "الأحياء",
+    "insights": "تحليلات السوق",
+    "philosophy": "فلسفتنا",
+    "contact": "تواصل معنا",
+    "languages": "اللغات"
+  },
+  "hero": {
+    "eyebrow": "عقارات خاصة · دبي · تأسست 2018",
+    "headline": "حيث تجد أرقى عناوين دبي أصحابها.",
+    "cta": "استكشف المجموعة"
+  },
+  "trust": {
+    "rera": "رقم RERA ORN 28847",
+    "transactions": "أكثر من 2.4 مليار درهم في المعاملات الخاصة",
+    "clients": "أكثر من 200 عميل من ذوي الثروات العالية",
+    "languages": "5 لغات · EN / AR / RU / HI / ZH"
+  },
+  "collection": {
+    "eyebrow": "المجموعة الخاصة",
+    "heading": "مساكن مختارة.",
+    "subheading": "منتقاة، لا مجرد مدرجة."
+  },
+  "footer": {
+    "tagline": "استشارات عقارية خاصة. دبي.",
+    "nav_heading": "التنقل",
+    "specialties_heading": "التخصصات",
+    "contact_heading": "التواصل",
+    "rera": "RERA ORN 28847 · رخصة DED {{ TO_CONFIRM }}",
+    "rights": "© 2024 إنفينيتي فيوز للعقارات. جميع الحقوق محفوظة.",
+    "newsletter_placeholder": "بريدك الإلكتروني",
+    "newsletter_cta": "اشترك"
+  },
+  "properties": {
+    "heading": "المجموعة",
+    "subheading": "مساكن خاصة، منتقاة بعناية.",
+    "filter_buy": "شراء",
+    "filter_rent": "إيجار",
+    "filter_area": "المنطقة",
+    "filter_type": "النوع",
+    "filter_beds": "غرف النوم",
+    "filter_price": "نطاق السعر",
+    "empty_heading": "لا توجد مساكن تطابق معاييرك.",
+    "empty_body": "تحدث مع مستشار للاطلاع على الفرص خارج السوق.",
+    "empty_cta": "تواصل مع مستشار"
+  },
+  "contact": {
+    "heading": "ابدأ محادثة",
+    "subheading": "خاص وغير ملزم. نرد خلال يوم عمل واحد.",
+    "intent_buy": "شراء",
+    "intent_rent": "إيجار",
+    "intent_sell": "بيع",
+    "intent_invest": "استثمار",
+    "label_intent": "أرغب في",
+    "label_area": "المنطقة المفضلة",
+    "label_type": "نوع العقار",
+    "label_budget": "الميزانية",
+    "label_bedrooms": "غرف النوم",
+    "label_message": "أخبرنا المزيد (اختياري)",
+    "label_name": "اسمك",
+    "label_email": "البريد الإلكتروني",
+    "label_phone": "رقم الهاتف",
+    "submit": "إرسال الاستفسار",
+    "success_heading": "تم استلام استفسارك.",
+    "success_body": "سيتواصل معك مستشار أول خلال يوم عمل واحد.",
+    "office": "المكتب",
+    "address": "برج بلازا، المستوى 14\nوسط مدينة دبي، الإمارات العربية المتحدة",
+    "phone": "+971 4 123 4567",
+    "whatsapp": "واتساب",
+    "email": "hello@infinityviews.ae",
+    "hours": "الأحد – الخميس: 9:00 – 18:00 بتوقيت الخليج"
+  },
+  "philosophy": {
+    "eyebrow": "فلسفتنا",
+    "heading": "شركة عقارية من نوع مختلف.",
+    "origins_chapter": "البدايات",
+    "approach_chapter": "نهجنا",
+    "standards_chapter": "معيار إنفينيتي"
+  }
+}
