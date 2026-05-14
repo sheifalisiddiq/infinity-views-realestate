@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollObserver from "@/components/ScrollObserver";
+import CursorTrail from "@/components/CursorTrail";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -37,6 +38,7 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet" />
       </head>
       <body className={`${dmSans.variable} ${playfair.variable} antialiased min-h-screen flex flex-col bg-background text-on-surface font-body`}>
+        <CursorTrail />
         <ScrollObserver />
         <Navbar />
         {children}
