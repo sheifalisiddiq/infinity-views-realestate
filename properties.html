@@ -42,17 +42,45 @@
 </head>
 <body class="bg-background text-on-surface font-body antialiased min-h-screen flex flex-col">
     <!-- TopNavBar -->
-    <nav class="bg-surface/90 backdrop-blur-md fixed top-0 w-full flex justify-between items-center px-margin-mobile md:px-margin-desktop py-6 hairline-b z-50">
+<nav class="bg-surface/40 backdrop-blur-xl border-b border-white/5 shadow-[0_8px_32px_rgba(0,0,0,0.3)] fixed top-0 w-full flex flex-col px-margin-mobile md:px-margin-desktop py-5 z-50 transition-all">
+    <div class="flex justify-between items-center w-full">
         <a class="font-headline text-[24px] text-tertiary italic tracking-tight" href="index.html">Infinity Views</a>
-        <div class="hidden md:flex gap-8">
-            <a class="font-label text-[12px] uppercase tracking-[0.1em] text-on-surface-variant hover:text-tertiary transition-colors" href="#">Portfolio</a>
-            <a class="font-label text-[12px] uppercase tracking-[0.1em] text-on-surface-variant hover:text-tertiary transition-colors" href="#">Neighborhoods</a>
-            <a class="font-label text-[12px] uppercase tracking-[0.1em] text-tertiary gold-hairline-b pb-1" href="properties.html">Listings</a>
-            <a class="font-label text-[12px] uppercase tracking-[0.1em] text-on-surface-variant hover:text-tertiary transition-colors" href="about.html">Philosophy</a>
-            <a class="font-label text-[12px] uppercase tracking-[0.1em] text-on-surface-variant hover:text-tertiary transition-colors" href="contact.html">Contact</a>
+        
+        <!-- Desktop Menu -->
+        <div class="hidden lg:flex items-center gap-6">
+            <a class="font-label text-[11px] uppercase tracking-[0.15em] text-on-surface-variant hover:text-white transition-colors" href="about.html">About</a>
+            <a class="font-label text-[11px] uppercase tracking-[0.15em] text-on-surface-variant hover:text-white transition-colors" href="services.html">Services</a>
+            <a class="font-label text-[11px] uppercase tracking-[0.15em] text-on-surface-variant hover:text-white transition-colors" href="properties.html">Properties</a>
+            <a class="font-label text-[11px] uppercase tracking-[0.15em] text-on-surface-variant hover:text-white transition-colors" href="buy.html">Buy</a>
+            <a class="font-label text-[11px] uppercase tracking-[0.15em] text-on-surface-variant hover:text-white transition-colors" href="rent.html">Rent</a>
+            <a class="font-label text-[11px] uppercase tracking-[0.15em] text-on-surface-variant hover:text-white transition-colors" href="off-plan.html">Off-Plan</a>
+            <a class="font-label text-[11px] uppercase tracking-[0.15em] text-on-surface-variant hover:text-white transition-colors" href="insights.html">Insights</a>
+            <a class="font-label text-[11px] uppercase tracking-[0.15em] text-on-surface-variant hover:text-white transition-colors" href="contact.html">Contact</a>
+            
+            <a href="hot-offers.html" class="font-label text-[11px] uppercase tracking-[0.15em] text-[#131313] bg-tertiary hover:bg-white px-5 py-2.5 transition-all duration-300 shadow-[0_0_15px_rgba(228,194,120,0.2)]">
+                Hot Offers
+            </a>
         </div>
-        <button class="font-label text-[12px] uppercase tracking-[0.1em] text-on-surface bg-transparent border border-tertiary/50 hover:border-tertiary px-6 py-3 transition-colors">Inquire</button>
-    </nav>
+
+        <!-- Mobile Menu Toggle -->
+        <button id="menu-btn" class="lg:hidden text-tertiary focus:outline-none">
+            <span class="material-symbols-outlined text-3xl">menu</span>
+        </button>
+    </div>
+
+    <!-- Mobile Menu Content -->
+    <div id="mobile-menu" class="lg:hidden flex flex-col gap-5 pt-6 mt-4 border-t border-white/10" style="transition: max-height 0.4s ease-in-out, opacity 0.3s ease; max-height: 0; overflow: hidden; opacity: 0;">
+        <a class="font-label text-[12px] uppercase tracking-[0.15em] text-on-surface-variant" href="about.html">About</a>
+        <a class="font-label text-[12px] uppercase tracking-[0.15em] text-on-surface-variant" href="services.html">Services</a>
+        <a class="font-label text-[12px] uppercase tracking-[0.15em] text-on-surface-variant" href="properties.html">Properties</a>
+        <a class="font-label text-[12px] uppercase tracking-[0.15em] text-on-surface-variant" href="buy.html">Buy</a>
+        <a class="font-label text-[12px] uppercase tracking-[0.15em] text-on-surface-variant" href="rent.html">Rent</a>
+        <a class="font-label text-[12px] uppercase tracking-[0.15em] text-on-surface-variant" href="off-plan.html">Off-Plan</a>
+        <a class="font-label text-[12px] uppercase tracking-[0.15em] text-on-surface-variant" href="insights.html">Insights</a>
+        <a class="font-label text-[12px] uppercase tracking-[0.15em] text-on-surface-variant" href="contact.html">Contact</a>
+        <a href="hot-offers.html" class="inline-block mt-2 font-label text-[12px] uppercase tracking-[0.15em] text-[#131313] bg-tertiary text-center px-6 py-3">Hot Offers</a>
+    </div>
+</nav>
 
     <main class="flex-grow pt-[160px] px-margin-mobile md:px-margin-desktop mb-section-gap">
         <div class="flex justify-between items-end mb-16 hairline-b pb-4">
@@ -129,5 +157,24 @@
         <span class="font-headline text-[24px] italic tracking-tight">Infinity Views</span>
         <p class="font-label text-[12px] uppercase tracking-[0.1em]">© 2026 Infinity Views. All rights reserved.</p>
     </footer>
+
+<script>
+    // Mobile Menu Logic
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if(menuBtn && mobileMenu) {
+        menuBtn.addEventListener('click', () => {
+            if (mobileMenu.style.maxHeight === '0px' || mobileMenu.style.maxHeight === '') {
+                mobileMenu.style.maxHeight = '500px';
+                mobileMenu.style.opacity = '1';
+                menuBtn.innerHTML = '<span class="material-symbols-outlined text-3xl">close</span>';
+            } else {
+                mobileMenu.style.maxHeight = '0px';
+                mobileMenu.style.opacity = '0';
+                menuBtn.innerHTML = '<span class="material-symbols-outlined text-3xl">menu</span>';
+            }
+        });
+    }
+</script>
 </body>
 </html>
