@@ -1,16 +1,29 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
+import { DM_Sans, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollObserver from "@/components/ScrollObserver";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
-const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfair" });
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  variable: "--font-dm-sans",
+  weight: ["300", "400", "500"],
+});
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-playfair",
+  style: ["normal", "italic"],
+});
 
 export const metadata: Metadata = {
   title: "Infinity Views | Luxury Real Estate Dubai",
-  description: "Curating Dubai's finest real estate for the world's most discerning buyers.",
+  description: "A discreet boutique advisory specializing in the acquisition and management of Dubai's most significant architectural estates.",
+  openGraph: {
+    title: "Infinity Views | Luxury Real Estate Dubai",
+    description: "Curating Dubai's finest real estate for the world's most discerning buyers.",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
@@ -19,11 +32,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark scroll-smooth">
+    <html lang="en" className="scroll-smooth">
       <head>
-        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet" />
       </head>
-      <body className={`${inter.variable} ${playfair.variable} antialiased min-h-screen flex flex-col bg-background text-on-surface font-body`}>
+      <body className={`${dmSans.variable} ${playfair.variable} antialiased min-h-screen flex flex-col bg-background text-on-surface font-body`}>
         <ScrollObserver />
         <Navbar />
         {children}

@@ -6,19 +6,19 @@
   --color-tertiary: #C9A961;
   --color-neutral: #2A2A2A;
   --color-surface: #0A0A0A;
-  --color-surface-container: #2A2A2A;
+  --color-surface-container: #141414;
   --color-background: #0A0A0A;
   --color-on-surface: #F4EFE6;
-  --color-on-surface-variant: #A0A0A0;
-  
+  --color-on-surface-variant: #9A9590;
+
   --spacing-margin-desktop: 80px;
-  --spacing-margin-mobile: 20px;
+  --spacing-margin-mobile: 24px;
   --spacing-gutter: 32px;
-  --spacing-section-gap: 160px;
-  
+  --spacing-section-gap: 140px;
+
   --font-headline: 'Playfair Display', serif;
-  --font-body: 'Inter', sans-serif;
-  --font-label: 'Inter', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+  --font-label: 'DM Sans', sans-serif;
 }
 
 body {
@@ -27,32 +27,42 @@ body {
   font-family: var(--font-body);
 }
 
+/* Subtle film-grain texture across the whole site */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  pointer-events: none;
+  opacity: 0.028;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 128px;
+}
+
 .border-neutral { border-color: var(--color-neutral); }
 
-/* Interactive animations */
 @layer utilities {
   .hover-lift {
-    transition: transform 0.4s cubic-bezier(0.2, 0, 0, 1), border-color 0.4s ease;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   }
   .hover-lift:hover {
-    transform: translateY(-8px);
+    transform: translateY(-6px);
     border-color: var(--color-tertiary);
-  }
-  
-  .gold-text-hover {
-    transition: color 0.3s ease;
-  }
-  .gold-text-hover:hover {
-    color: var(--color-tertiary);
   }
 
   .fade-up {
     opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s cubic-bezier(0.2, 0, 0, 1);
+    transform: translateY(20px);
+    filter: blur(4px);
+    transition:
+      opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+      filter 0.7s cubic-bezier(0.16, 1, 0.3, 1);
   }
   .fade-up.visible {
     opacity: 1;
     transform: translateY(0);
+    filter: blur(0px);
   }
 }
